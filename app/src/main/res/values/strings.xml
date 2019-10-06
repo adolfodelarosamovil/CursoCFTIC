@@ -1,3 +1,65 @@
 <resources>
-    <string name="app_name">CursoCFTIC</string>
+    <string name="app_name">Curso CFTIC Android</string>
+    <string name="J1909191">J-19-09-19 Presentación del curso</string>
+    <string name="J1909192">J-19-09-19 Android Studio</string>
+    <string name="J1909193">J-19-09-19 Test</string>
+
+    <string name="V2009191">V-20-09-19 Terminal</string>
+    <string name="V2009192">V-20-09-19 Atajos del teclado</string>
+    <string name="V2009193">V-20-09-19 APP MIPRIMERAAPP</string>
+    <string name="V2009194">V-20-09-19 Estructura del proyecto</string>
+    <string name="V2009195">V-20-09-19 findViewById y Clase R</string>
+    <string name="V2009196">V-20-09-19 Log</string>
+    <string name="V2009197">V-20-09-19 SP y DP</string>
+
+    <string name="L2309191">L-23-09-19 Activity</string>
+    <string name="L2309192">L-23-09-19 APP VERSIONES</string>
+    <string name="L2309193">L-23-09-19 Constrains</string>
+    <string name="L2309194">L-23-09-19 Eventos</string>
+
+    <string name="M2409191">M-24-09-19 Icono APP</string>
+    <string name="M2409192">M-24-09-19 APP LETRAS</string>
+    <string name="M2409193">"M-24-09-19 Manifest</string>
+
+    <string name="X2509191">X-25-09-19 Orientación Horizontal"</string>
+    <string name="X2509192">X-25-09-19 Ciclo de Vida de las Activity</string>
+    <string name="X2509193">X-25-09-19 onSaveInstanceState</string>
+    <string name="X2509194">X-25-09-19 Bundle</string>
+    <string name="X2509195">X-25-09-19 APP IMC</string>
+
+    <string name="J2609191">J-26-09-19 Multilenguaje</string>
+    <string name="J2609192">J-26-09-19 Imágenes - Drawables-ImagenView</string>
+    <string name="J2609193">J-26-09-19 ScrollView</string>
+
+    <string name="V2709191">V-27-09-19 APP CAJAS</string>
+    <string name="V2709192">V-27-09-19 LinearLayout</string>
+    <string name="V2709193">V-27-09-19 Colores</string>
+    <string name="V2709194">V-27-09-19 3 Soluciones</string>
+    <string name="V2709195">V-27-09-19 Finish</string>
+
+    <string name="L3009191">L-30-09-19 Git</string>
+    <string name="L3009192">L-30-09-19 Toasts</string>
+
+    <string name="M0110191">M-01-10-19 Views - Herencia</string>
+    <string name="M0110192">M-01-10-19 Sonidos</string>
+    <string name="M0110193">M-01-10-19 Intents</string>
+    <string name="M0110194">M-01-10-19 Animaciones</string>
+
+    <string name="X0210191">X-02-10-19 APP BOTONES</string>
+    <string name="X0210192">X-02-10-19 Menú Inicial</string>
+    <string name="X0210193">X-02-10-19 Barra - Flecha regreso</string>
+    <string name="X0210194">X-02-10-19 Barra - Menú ...</string>
+    <string name="X0210195">X-02-10-19 Imágenes menú</string>
+    <string name="X0210196">X-02-10-19 APP URI-MARCA</string>
+
+    <string name="J0310191">Action Bar</string>
+    <string name="J0310192">Intens Explicitos</string>
+    <string name="J0310193">APP ORDENES CON VOZ</string>
+    <string name="J0310194">Integrar WhatsApp</string>
+
+    <string name="V0410191">Documentación Curso en PDFs</string>
+    <string name="V0410192">Intents - Paso de valores</string>
+    <string name="V0410193">Animaciones - XML</string>
+    <string name="V0410194">APP DNI</string>
+
 </resources>
