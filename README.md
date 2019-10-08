@@ -67,9 +67,30 @@ En Android Studio creamos un nuevo proyecto.
 
 <img src="/imgDocumentacion/create_new_project.png">
 
-Debemos ingresar un **package name** y un nombre para la aplicación.
+Al ingresar todos los datos solicitados vemos la estructura de un proyecto en Android Studio.
 
-Toda App Android cuenta con **Gradle** que es un Gestor de Dependencias.
+<img src="/imgDocumentacion/structure_project.png">
+
+Al ejecutar el proyecto en el simulador tenemos lo siguiente:
+
+<img src="/imgDocumentacion/ejecucion.png">
+
+### Gradle
+
+**Gradle** es el Gestor de Dependencias usado por Android Studio.
+
+El archivo **build.gradle** contiene información importante de la construcción de nuestro proyecto como `compileSdkVersion` y todas las dependencias necesarias.
+
+<img src="/imgDocumentacion/build_gradle.png">
+
+
+### Extensiones de Archivos
+
+* `.java` Clase java
+* `.class` Clase compilada
+* `.jar` Librería de clases
+* `.apk` Ejecutable de Android
+
 
 
 
