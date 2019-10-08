@@ -65,7 +65,7 @@ Aplicación creada para ver la estructura general de cualquier aplicación Andro
 
 En Android Studio creamos un nuevo proyecto.
 
-<img src="/imgDocumentacion/create_new_project.png">
+<img src="/imgDocumentacion/create_newproject.png">
 
 Al ingresar todos los datos solicitados vemos la estructura de un proyecto en Android Studio.
 
