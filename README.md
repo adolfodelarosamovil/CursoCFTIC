@@ -73,7 +73,7 @@ Al ingresar todos los datos solicitados vemos la estructura de un proyecto en An
 
 Al ejecutar el proyecto en el simulador tenemos lo siguiente:
 
-<img src="/imgDocumentacion/myapplication1_ejecucion.png">
+<img src="/imgDocumentacion/myapplication1_ejecucion.png" width="80">
 
 ### Gradle
 
