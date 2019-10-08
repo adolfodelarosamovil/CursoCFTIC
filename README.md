@@ -63,6 +63,10 @@ Git se almacena en tres espacios diferentes:
 
 Aplicación creada para ver la estructura general de cualquier aplicación Android.
 
+En Android Studio creamos un nuevo proyecto.
+
+<img src="/imgDocumentacion/create_new_project.png">
+
 Debemos ingresar un **package name** y un nombre para la aplicación.
 
 Toda App Android cuenta con **Gradle** que es un Gestor de Dependencias.
