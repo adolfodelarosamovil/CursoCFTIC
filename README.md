@@ -63,7 +63,7 @@ Git se almacena en tres espacios diferentes:
 
 [Documentación oficial](https://developer.android.com/)
 
-### APP MiPrimerApp
+### :iphone: APP MiPrimerApp :iphone:
 
 Aplicación creada para ver la estructura general de cualquier aplicación Android.
 
@@ -104,10 +104,10 @@ Existen 4 componentes en Android
 
 <img src="/imgDocumentacion/componentes.png">
 
-* **Activity**: Representan las pantallas d enuestra aplicación
-* **Servicios**: Hacen taresas no visuales
+* **Activity**: Representan las pantallas de nuestra aplicación
+* **Servicios**: Hacen tareas no visuales
 * **Receiver**: Gestionan los eventos
-* **Provider**:
+* **Provider**: Otras Apps
 
 #### Activity
 
@@ -143,7 +143,7 @@ La **clase R** da acceso a todo lo que se encuentra en la carpeta **res**. Por e
 
 ## Lunes 23/09/2019
 
-### APP VERSIONES
+### :iphone: APP VERSIONES :iphone:
 
 ### Eventos
 
@@ -182,6 +182,12 @@ Al aceptar la configuración en nuestro proyecto se almacenarán los diferentes 
 
 Finalmente en nuestro movil ya tendremos nuestra aplicación representada con el icono que configuramos.
 
-<img src="/imgDocumentacion/app_icon.png"> 
+<img src="/imgDocumentacion/app_icon.png">
+
+### :iphone: App Letras :iphone:
+
+App que nos permitira saber si una palabra o expresión es un **palíndromo** es decir que se lee igual de izquierda a derecha que de derecha a izquierda.
+
+
 
 
