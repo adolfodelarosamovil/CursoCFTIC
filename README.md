@@ -180,3 +180,8 @@ Al aceptar la configuración en nuestro proyecto se almacenarán los diferentes 
 
 <img src="/imgDocumentacion/mipmap.png">
 
+Finalmente en nuestro movil ya tendremos nuestra aplicación representada con el icono que configuramos.
+
+<img src="/imgDocumentacion/app_icon.png"> 
+
+
