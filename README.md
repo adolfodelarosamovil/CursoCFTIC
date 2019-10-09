@@ -55,6 +55,8 @@ Git se almacena en tres espacios diferentes:
 
    **Key Map** Para personalizar teclado, puedo poner los comandos de otros editores como *Visual Studio* o *Eclipse*.
    
+   <img src="/imgDocumentacion/create_newproject.png">
+   
 ### Documetación Oficial
 
 [Documentación oficial](https://developer.android.com/)
@@ -90,6 +92,10 @@ El archivo **build.gradle** contiene información importante de la construcción
 * `.class` Clase compilada
 * `.jar` Librería de clases
 * `.apk` Ejecutable de Android
+
+### Arquitectura de una aplicación Android
+
+<img src="/imgDocumentacion/arquitectura.png">
 
 
 
