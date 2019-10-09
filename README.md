@@ -51,6 +51,8 @@ Git se almacena en tres espacios diferentes:
 * Local
 * Remote
 
+[Guía rápida completa GIT](https://github.com/adolfodelarosamovil/CursoCFTIC/blob/master/Documentacion/Guia_rapida_completa_GIT.pdf)
+
 ### Atajos de Teclado
 
 **Preference**
@@ -139,7 +141,16 @@ Podemos filtrar los mensajes usando el **Tag** que colocamos en la instrucción 
 
 ### Clase R
 
-La **clase R** da acceso a todo lo que se encuentra en la carpeta **res**. Por ejemplo
+La **clase R** da acceso a todo lo que se encuentra en la carpeta **res**:
+* drawable
+* layout
+   * activity_main.xml
+* mipmap
+   * ic_launcher.png
+* values
+   * colors.xml
+   * string.xml
+   * styles.xml
 
 ## Lunes 23/09/2019
 
@@ -189,6 +200,89 @@ Finalmente en nuestro movil ya tendremos nuestra aplicación representada con el
 ### :iphone: App Letras :iphone:
 
 App que nos permitira saber si una palabra o expresión es un **palíndromo** es decir que se lee igual de izquierda a derecha que de derecha a izquierda.
+
+### Ejercicio
+
+Algún programador Clase C nos ha dejado en herencia una función sin documentar y programada de forma críptica. Se pide:
+
+1) AVERIGUAR QUÉ HACE EL MÉTODO
+2) DARLE UN NOMBRE APROPIADO
+3) IMPLMENTAR UN MODO ALTERNATIVO DE REALIZAR LA MISMA FUNCIONALIDAD
+4) HACER UNA VERSIÓN RECURSIVA QUE RESUELVA EL MISMO PROBLEMA
+
+```
+private static boolean adivinaQueHace (String cad)
+	{
+		boolean bd = true;
+		
+		int i = 0;
+		int j = cad.length()-1;
+		
+		while ((i<=j)&&(bd))
+		{
+			bd = cad.charAt(i)==cad.charAt(j);
+			i++;
+			j--;
+		}
+		
+		
+		return bd;
+	}
+```
+
+## Miercoles 25/09/2019
+
+### Manejo de la orientación de la pantalla.
+
+En un dispositivo movil o table tendremos dos orientaciones de la pantalla:
+* Portrait (Vertical)
+* Landscape (Horizontal)
+
+Podemos seguir dos estrategias para el manejo de las pantallas:
+* Insensible: es decir forzamos a que solo maneje una sola orientación de pantalla, esto se define en el *manifest*
+* Sensible: Creo un layout exclusivo para la orientación Landscape.
+
+#### Estrategia Insensible**
+
+```xml
+<activity android:name=".MainActivity"
+  android:screenOrientation="landscape"
+  android:configChanges="screenSize|keyboardHidden|orientation">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN" />
+      <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+De esta manera nuestra actividad siempre se presentará en orientación Landscape no importando como coloquemos el dispositivo.
+
+<img src="/imgDocumentacion/landscape1.png">
+
+<img src="/imgDocumentacion/landscape2.png">
+
+#### Estrategia Sensible
+
+Aquí vamos a crear un layout exclusivo para la orientación Landscape como se muestra en la imagen.
+
+<img src="/imgDocumentacion/create_landscape_variation.png">
+
+Una vez que hemos aceptado en nuestra carpeta layout tendremos dos archivos xml con el mismo nombre, uno para la orientación Portrait y otro para Landscape, los cuales pueden ser diferentes en su diseño personalizando cada uno a nuestro gusto.
+
+<img src="/imgDocumentacion/create_landscape_result.png">
+
+### Ciclo de Vida de una Activity
+
+[Ciclo de Vida de una Activity](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=es)
+
+<img src="/imgDocumentacion/activity_lifecycle.png">
+
+Entender el ciclo de vida de una Activity es de vital importancia ya que nos ayudara a entender que pasa en cada momento con una Activity. Por ejemplo si tenemos cargada una App en una posición vertical y giramos el dispositivo a una orientación horizontal, la Activity se destruye y se vuelve a crear nuevamente. En el caso de que tengamos valores asignados estos podrán perderse ya que como se menciono anteriormente la Activity se vuelve a crear, por lo que tenemos que encontrar un mencanismo para almacenar esa información antes de que la activity se destruya para una vez que se vuelva a crear recuperar esos valores y asignarlos a sus respectivos views.
+
+
+
+
+
 
 
 
