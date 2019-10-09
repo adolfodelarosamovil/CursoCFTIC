@@ -63,9 +63,9 @@ Git se almacena en tres espacios diferentes:
 
 [Documentación oficial](https://developer.android.com/)
 
-### :iphone: APP MiPrimerApp :iphone:
+### :iphone: APP MyApplication1 :iphone:
 
-Aplicación creada para ver la estructura general de cualquier aplicación Android.
+Clasica *App Hello World!* creada para ver la estructura general de cualquier aplicación Android.
 
 En Android Studio creamos un nuevo proyecto.
 
@@ -92,7 +92,7 @@ El archivo **build.gradle** contiene información importante de la construcción
 * `.java` Clase java
 * `.class` Clase compilada
 * `.jar` Librería de clases
-* `.apk` Ejecutable de Android
+* `.apk` Ejecutable de Android: Se genera usando **Build / Build Bundles(s)/APK(s) /Build APK(s)** y se genera en **app/build/outputs/apk/debug/app-debug.apk**
 
 ### Arquitectura de una aplicación Android
 
@@ -144,6 +144,8 @@ La **clase R** da acceso a todo lo que se encuentra en la carpeta **res**. Por e
 ## Lunes 23/09/2019
 
 ### :iphone: APP VERSIONES :iphone:
+
+App que nos permite saber que versión se tiene en el dispositivo donde se esta ejecutando la App.
 
 ### Eventos
 
