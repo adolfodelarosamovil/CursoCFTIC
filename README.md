@@ -418,3 +418,7 @@ Como se puede apreciar en la imagen tenemos dos **strings.xml**, uno para cada i
     <string name="saludo">Hello World!</string>
 </resources>
 ```
+
+Dependiendo de la configuración del dispositivo se mostrara una u otra versión.
+
+
