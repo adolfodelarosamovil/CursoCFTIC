@@ -421,5 +421,5 @@ Como se puede apreciar en la imagen tenemos dos **strings.xml**, uno para cada i
 
 Dependiendo de la configuración del dispositivo se mostrara una u otra versión.
 
-<img src="/imgDocumentacion/myapplication1_ejecucion_esp.png" width="250"><img src="/imgDocumentacion/myapplication1_ejecucion.png" width="250">
+<img src="/imgDocumentacion/myapplication1_ejecucion_esp.png" width="300"><img src="/imgDocumentacion/myapplication1_ejecucion.png" width="300">
 
