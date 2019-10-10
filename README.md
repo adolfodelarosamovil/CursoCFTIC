@@ -33,7 +33,7 @@ Ajustes en el dispositivo para poder ejecutar aplicaciones:
 * Usar como desarrollador
 * Número de compilación pulsar 7 veces
 
-[Test de Evaluación](https://github.com/adolfodelarosamovil/CursoCFTIC/blob/master/Documentacion/TEST_TICAPP.doc)
+[Test de Evaluación](https://github.com/adolfodelarosamovil/CursoCFTIC/blob/master/Documentacion/TEST_TICAPP.pdf)
 
 ## Viernes 20/09/2019
 
