@@ -299,19 +299,120 @@ Un *Bundle* es una especie de *Map* donde podemos almacenar datos con formato **
 
 #### Ejemplo de Uso de onSaveIntanceState y Bundle
 
+En el método `onSaveInstanceState` guardamos datos en el *Bundle* representado por `outState` usando `put` y el tipo del dato a almacenar pasando dos parámetros **key** y **value**
+```
+@Override
+protected void onSaveInstanceState(@NonNull Bundle outState) {
+  super.onSaveInstanceState(outState);
+
+  //Almacena datos de diferentes tipos
+  outState.putString("nombre", "App de prueba");
+  outState.putDouble("version", 1.23);
+}
+```
+
+Estos datos los podemos recuperar en el método `onCreate` ya que tiene el parámetro `savedInstanceState` de tipo *Bundle* que recibe los datos que salvamos en el método `onSaveInstanceState`, una vez recupedos los podemos asignar a donde sea necesario.
+
+```
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   setContentView(R.layout.activity_main);
+
+   if(savedInstanceState==null){
+     Log.d("MIAPP", "No hay datos guardado");
+   }else{
+     Log.d("MIAPP", "Hay datos guardados");
+     
+     //Coger los datos guardados del Budle
+     String nombre = savedInstanceState.getString("nombre");
+     Double version = savedInstanceState.getDouble("version");     
+    }
+```
 
 ### :iphone: App IMC :iphone:
 
 ## Jueves 26/09/2019
 
+### Archivo strings.xml
+
+El archivo **strings.xml** que se ubica en el directorio **res/values**, es muy útil para insertar valores de textos que en lugar de ponerlos *"Harcodeados"* en los archivos `activity.xml`, podemos insertarlos en **strings.xml** y usar estos textos dentro del los archivos `activity.xml`, veamos un ejemplo la siguiente pantalla:
+
+<img src="/imgDocumentacion/myapplication1_ejecucion.png">
+
+se dibuja usando el siguiente `.xml`:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+Podemos apreciar que dentro del `TextView` tenemos el atributo `android:text="Hello World!"` el cual hace que se despliegue ese texto en la pantalla, pero como se puede apreciar esta *"Harcodeados"*. 
+
+Vamos a meter el texto dentro del archivo  **strings.xml** y cambiar el atributo para que siga haciendo exactamente lo mismo pero con el texto en Español, por lo que **strings.xml** quedaría así:
+
+```
+<resources>
+    <string name="app_name">MyApplication1</string>
+    <string name="saludo">Hola Mundo!</string>
+</resources>
+```
+
+Y el atributo `text` dentro del `xml` de la actividad se debe invocar así:
+
+`android:text="@string/saludo"`
+
+La **@** denota que hacemos referencía a un recurso dentro de **res** en este caso dentro de **string** el cual se llama **saludo**, el resultado de la pantalla sigue siendo exactamente el mismo pero esto nos va a permitir tener todos los textos en un solo archivo.
+
+El resultado es:
+
+<img src="/imgDocumentacion/myapplication1_ejecucion_esp.png">
+
 ### i18n Multilenguaje
 
-Para utilizar el multilenguaje usamos el archivo **strings.xml** que se ubica en el directorio **res/values**
 
+Para utilizar el multilenguaje usamos el archivo **strings.xml**, lo primero que debemos hacer es presiona en **Open editor** que se muestra en la parte superior derecha:
 
+<img src="/imgDocumentacion/open_editor.png">
 
+Se nos abrira un editor con la versión que tenemos actualmente (Español), para crear otra versión presionamos en el *Mundo* y seleccionamos el idioma deseado en este caso **English En**.
 
+<img src="/imgDocumentacion/select_english.png">
 
+Cuando seleccionamos el idioma nos creara una nueva columna en el editor para introducir el texto en el idioma seleccionado:
 
+<img src="/imgDocumentacion/english_text.png">
 
+Como se puede apreciar en la imagen tenemos dos **strings.xml**, uno para cada idioma, el contenido es el siguiente:
 
+**strings.xml**
+```
+<resources>
+    <string name="app_name">MyApplication1</string>
+    <string name="saludo">Hola Mundo!</string>
+</resources>
+```
+**strings.xml (en)**
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApplication1</string>
+    <string name="saludo">Hello World!</string>
+</resources>
+```
