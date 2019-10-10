@@ -10,6 +10,7 @@ Coordinadora general: Leticia
 CAS: Mari Jose
 
 Profesor: Valeriano
+
 github personal https://github.com/Valexx55
 stackoverflow https://stackoverflow.com/users/4067559/val-martinez
 
