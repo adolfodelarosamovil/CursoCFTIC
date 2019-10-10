@@ -59,7 +59,7 @@ Git se almacena en tres espacios diferentes:
 
    **Key Map** Para personalizar teclado, puedo poner los comandos de otros editores como *Visual Studio* o *Eclipse*.
    
-   <img src="/imgDocumentacion/create_newproject.png">
+   <img src="/imgDocumentacion/keymap.png">
    
 ### Documetación Oficial
 
@@ -279,6 +279,34 @@ Una vez que hemos aceptado en nuestra carpeta layout tendremos dos archivos xml 
 
 Entender el ciclo de vida de una Activity es de vital importancia ya que nos ayudara a entender que pasa en cada momento con una Activity. Por ejemplo si tenemos cargada una App en una posición vertical y giramos el dispositivo a una orientación horizontal, la Activity se destruye y se vuelve a crear nuevamente. En el caso de que tengamos valores asignados estos podrán perderse ya que como se menciono anteriormente la Activity se vuelve a crear, por lo que tenemos que encontrar un mencanismo para almacenar esa información antes de que la activity se destruya para una vez que se vuelva a crear recuperar esos valores y asignarlos a sus respectivos views.
 
+
+#### onSaveIntanceState
+
+El método `onSaveInstanceState` es llamado antes de destruir una Activity por lo que es un lugar idoneo para almacenar datos.
+
+```
+@Override
+public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+  super.onSaveInstanceState(outState, outPersistentState);
+}
+```
+
+#### Bundle
+
+Un *Bundle* es una especie de *Map* donde podemos almacenar datos con formato **key/value**.
+
+<img src="/imgDocumentacion/bundle.png">
+
+#### Ejemplo de Uso de onSaveIntanceState y Bundle
+
+
+### :iphone: App IMC :iphone:
+
+## Jueves 26/09/2019
+
+### i18n Multilenguaje
+
+Para utilizar el multilenguaje usamos el archivo **strings.xml** que se ubica en el directorio **res/values**
 
 
 
