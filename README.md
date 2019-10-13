@@ -423,3 +423,85 @@ Dependiendo de la configuración del dispositivo se mostrara una u otra versión
 
 <img src="/imgDocumentacion/myapplication1_ejecucion_esp.png" width="300"><img src="/imgDocumentacion/myapplication1_ejecucion.png" width="300">
 
+#### Recuperar valores string de forma dinámica
+También sera necesario recuperar los valores de los strings desde el código java, la forma dehacerlo es como sigue:
+
+```
+//ejemplo de obtener dinámicante un texto multilingüe
+String nombre_app = getResources().getString(R.string.app_name);
+Log.d("etiqueta", nombre_app);
+```
+
+### Reiniciar Servidor
+
+Si alguna vez se nos traba la App existe la opción de resetear el servidor, la opción se hace con:
+
+**File/ Invalidate Cache / Restart...**
+
+### Scroll View
+
+La vista **Scroll View** nos permite desplazarnos a lo largo de la pantalla para ver opciones que en prncipio no podemos ver, muy util para listas muy largas. Cuando se tiene una **Scroll View** solo debe contener un hijo el cual ya puede tener todo el contenido de la página. Un ejemplo lo tenemos en el siguiente código.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+	
+	.
+	.
+	.
+	
+    </LinearLayout>
+</ScrollView>
+```
+
+### Imagenes e ImageView
+
+Podemos importar imagenes a nuestro proyecto dentro de la carpeta **drawable**, si solo arrastramos las imagenes en esa carpeta se insertara la imagen, pero si queremos que la imagen este lista para varias resouluciones sera necesario insertar el pluging **Android Drawable Importer**
+
+[Android Drawable Importer](https://stackoverflow.com/a/37321194)
+
+Lo primero que debemos es insertar el pluging para lo cual nos vamos a **File/settings**
+
+Seleccionamos la opción **Pluging** y buscamos **Android Drawable Importer**
+
+<img src="/imgDocumentacion/android_drawable_import.png">
+
+Una vez que instalemos el Pluging se nos pedira Resetear el IDE.
+
+Una vez que se ha reiniciado el IDE ya podemos colocarnos en la carpeta **res/drawable** dar un clic derecho, seleccionar **new** y al final de la lista veremos 4 nuevas opciones que se han inluido gracias al pluging. Seleccionamos la opción de **Batch Drawable Import**
+
+<img src="/imgDocumentacion/android_drawable_import_4_opciones.png">
+
+Nos saldra una ventana donde pulsamos el simbolo + para seleccionar la imagen que deseamos añadir:
+
+<img src="/imgDocumentacion/android_drawable_import_add_image.png">
+
+Se mostrara todos los tamaños que se crearan:
+
+<img src="/imgDocumentacion/android_drawable_import_size.png">
+
+Una vez que aceptamos todas las opciones podemos ver como se han añadido las diferentes resoluciones para nuestra imagen:
+
+<img src="/imgDocumentacion/android_drawable_import_files.png">
+
+
+
+
+
+
+
+//setear imagen
+ImageView imagen_pantera = findViewById(R.id.pantera);
+imagen_pantera.setImageResource(R.drawable.pantera_rosa);
+
+
