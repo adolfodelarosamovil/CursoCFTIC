@@ -997,22 +997,129 @@ EJERCICIO:
 2.1 SI ACIERTA, SE LE MUESTRA EL TIEMPO TOTAL INVERTIDO
 2.2 SI FALLA, SE LE AVISA Y EL TIEMPO SIGUE CORRIENDO
 
+CV
+ACTIVITY SPLASH RIVAS
+https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/java/edu/val/idel/rivas/turismorivas/actividades/SplashActivity.java
+
 
 ## Miercoles 02/10/2019
 
+CV
+MUESTRARIO APP BOTONES
+Para que podáis ver los distintos tipos de botones que podéis emplear
+una app de ejemplo
+https://github.com/Valexx55/ANDROID_BOTONES
+
+
+CV
+INTENT COMUNES
+https://developer.android.com/guide/components/intents-common?hl=es-419
+
 ## Jueves 03/10/2019
+
+CV
+PROYECTO MENU
+https://github.com/Valexx55/MENU_GETAFE
+
+CV
+MICROFONO RIVAS
+https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/java/edu/val/idel/rivas/turismorivas/actividades/CreditosActivity.java
+
+CV
+Una web dinámica para explicar los comandos de git
+https://ndpsoftware.com/git-cheatsheet.html
+
+
 
 ## Viernes 04/10/2019
 
+CV
+Editor
+http://collabedit.com/vbd6g
+
+CV
+TRANSPARENCIAS
+
+CV
+CORREO DNI
+https://okdiario.com/howto/como-saber-letra-del-dni-2336724
+
+
 ## Lunes 07/10/2019
+
+CV
+Letra dni mejorado
+http://www.nie.com.es/letra.html
+
+CV
+IMC intents
+https://github.com/adolfodelarosamovil/IMC
+
+
 
 ## Martes 08/10/2019
 
+CV
+COLLABEDIT HOY
+http://collabedit.com/mssdc
+
+CV
+Enlace wikiimc
+https://es.wikipedia.org/wiki/%C3%8Dndice_de_masa_corporal
+
+CV
+MENU CONTEXT
+https://developer.android.com/guide/topics/ui/menus?hl=es-419#FloatingContextMenu
+
+CV
+url FICHAPP
+https://github.com/Valexx55/FICHApp
+
+
 ## Miercoles 09/10/2019
 
+CV
+COLLABEDIT HOY
+http://collabedit.com/f3p9r
+
+CV
+TETRIS
+https://github.com/saqibsaleem22/Tetris
+
+CV
+ENUNCIADO APP VOLUNTARIA
+/**
+ * HACER UNA APLICACIÓN
+ * QUE ADIVINE UN NÚMERO GENERADO ALEATORIAMENTE
+ * EL USUARIO TENDRÁ 5 INTENTOS Y CADA VEZ QUE FALLE
+ * LA APLICACIÓN LE INFORMARÁ DE SI EL NÚMERO BUSCADO
+ * ES MAYOR O MENOR
+ * 
+ * SI CONSIGUE ADIVINAR, MOSTRAR UNA FELICITACIÓN
+ * SI NO, MENSAJE DE CONDOLENCIA
+ * 
+ * SI EL USUARIO SALE DE LA APLICACIÓN Y VUELVE A ENTRAR
+ * GUARDAR LOS INTENTOS QUE YA HA GASTADO
+ *
+ */
+ 
+ 
 ## Jueves 10/10/2019
 
+CV
+COLLABEDIT HOY ALERTDIALOG
+http://collabedit.com/crgev
+
 ## Viernes 11/10/2019
+
+CV
+PRACTICA MAXIM
+https://github.com/cmadrid19/Adivinar_Numero
+
+CV
+El consejero en nuestra clase de Android
+http://www.comunidad.madrid/noticias/2019/10/11/extendemos-oferta-formacion-empleo-cinco-centros-propios
+
 
 ## Lunes 14/10/2019
 
