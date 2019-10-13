@@ -55,6 +55,36 @@ Git se almacena en tres espacios diferentes:
 
 [Guía rápida completa GIT](https://github.com/adolfodelarosamovil/CursoCFTIC/blob/master/Documentacion/Guia_rapida_completa_GIT.pdf)
 
+**Algunos comandos importantes**
+
+```
+>ls -las
+
+>cat .gitignore
+	/idea
+	/build
+	/capture
+	
+>git init
+
+>git add .
+
+>git commit -m "Commit Inicial"
+
+>git remote add origin
+
+>remote -u {fetch/push}
+
+>git push -u origin master
+
+>git pull
+
+>git reset --hard origin/master
+
+>rm -Rf .git
+
+```
+
 ### Atajos de Teclado
 
 **Preference**
@@ -569,11 +599,35 @@ imagenPanteraRosa.setVisibility(View.GONE);
 
 ## Viernes 27/09/2019
 
-### :iphone: App Cajas :iphone:
-
 ### Linear Layout
 
 Un Layout que organiza otras vistas, ya sea horizontalmente en una sola columna o verticalmente en una sola fila.
+
+El LinearLayout tiene el atributo `android:orientation="vertical/horizontal"` que puede ser `vertical` u `horizontal` para determinar la orientación de los `view` que contenga. Cada `view` a su vez hara uso de los atributos:
+
+```
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+```
+
+Los dos primeros pueden tener valores:
+```
+match_parent
+wrap_content
+0dp
+```
+
+y `android:layout_weight` tiene un valor de peso con respecto a los demas `view`.
+
+Otros atributos importantes son:
+
+```
+android:gravity="centerl"
+android:layout_gravity="center_horizontal"
+```
+
+Combinando estos tres atributos más la orientación se puede hacer infinidad de diseños. Como los ejemplos que se ven a continuación:
 
 **LinearLayout Vertical**
 ```
@@ -849,3 +903,58 @@ El `Weight` es un peso que se le da a cada uno de los views que  se pinten
 ```
 
 <img src="/imgDocumentacion/linearlayout_5.png">
+
+### Cerrar una Activity
+
+Los siguientes métodos permiten cerrar una activity o la App.
+
+* `finish()` Cierra la activity (pantalla) actualmente visible y regresa a la anterior pantalla, si es la primera la App se cierra.
+* `finishAffinity()` Cierra la App (versión 15 en adelante).
+
+### :iphone: App Cajas :iphone:
+
+## Lunes 30/09/2019 
+
+### Toasts
+
+Son avisos que proporciona información simple sobre una acción en una pequeña ventana emergente. Solo ocupa la cantidad de espacio necesario para el mensaje, y la actividad en curso permanece visible y admite la interacción. Los avisos desaparecen automáticamente después de un tiempo.
+
+```
+ Toast toast = Toast.makeText(this, "Sending message...", Toast.LENGTH_LONG);
+ toast.show();
+```
+
+<img src="/imgDocumentacion/toast.png">
+
+Toast necesita tres parámetros el contexto, el mensaje y la duración, existen dos valores para la duracción del mensaje:
+
+```
+Toast.LENGTH_LONG
+Toast.LENGTH_SHOR
+```
+
+## Martes 01/10/2019
+
+### Clase MediaPlayer
+
+**Documentación Oficial**
+* [Audio & Video](https://developer.android.com/guide/topics/media/)
+* [android-SimpleMediaPlayer](https://github.com/googlearchive/android-SimpleMediaPlayer)
+
+La clase **MediaPlayer** nos permitira reproducir archivos de sonido en nuestra App. Lo primero que tenemos que hacer es crear el directorio **res/raw** y dentro colocamos nuestros archivos **.mp3** <audio src="/audio_video/jazz_in_paris.mp3">Jazz in Paris</audio>
+que queramos resproducir. En nuestro archivo **.java** incluimos las siguientes instrucciones:
+
+```
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+	
+	//Reproducir archivo de sonido
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.jazz_in_paris);
+        mediaPlayer.setLooping(false);
+        mediaPlayer.setVolume(1300, 1300);
+        mediaPlayer.start();
+    }
+```
+
