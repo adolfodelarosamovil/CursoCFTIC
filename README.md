@@ -15,6 +15,19 @@ github personal https://github.com/Valexx55
 
 stackoverflow https://stackoverflow.com/users/4067559/val-martinez
 
+Documentación Profesor
+
+* [1. Introducción Android](/Documentacion/ANDROID.pdf)
+* [3 – LAYOUTS y VISTAS Básicas ](/Documentacion/ANDROID3.pdf)
+* [4 – LAYAOUTS y VISTAS Avanzadas](/Documentacion/ANDROID4.pdf)
+* [5 – ALMACENAMIENTO INTERNO](/Documentacion/ANDROID5.pdf)
+* [6 – CLASES PRINCIPALES](/Documentacion/ANDROID6.pdf)
+* [7 – PERIFÉRICOS Y SERVICIOS DE GOOGLE](/Documentacion/ANDROID7.pdf)
+* [Colecciones en JAVA](/Documentacion/Colecciones.pdf)
+* [El CONTEXTO en ANDROID](/Documentacion/CONTEXT.pdf)
+* [TRANSICIONES](/Documentacion/TRANSICIONES.pdf)
+
+
 Herramientas Necesarias:
 * Android Studio
 * JDK 8
@@ -941,20 +954,92 @@ Toast.LENGTH_SHOR
 * [Audio & Video](https://developer.android.com/guide/topics/media/)
 * [android-SimpleMediaPlayer](https://github.com/googlearchive/android-SimpleMediaPlayer)
 
-La clase **MediaPlayer** nos permitira reproducir archivos de sonido en nuestra App. Lo primero que tenemos que hacer es crear el directorio **res/raw** y dentro colocamos nuestros archivos **.mp3** <audio src="/audio_video/jazz_in_paris.mp3">Jazz in Paris</audio>
-que queramos resproducir. En nuestro archivo **.java** incluimos las siguientes instrucciones:
+La clase **MediaPlayer** nos permitira reproducir archivos de sonido en nuestra App. Lo primero que tenemos que hacer es crear el directorio **res/raw** y dentro colocamos nuestros archivos **.mp3** (jazz_in_paris.mp3) que queramos reproducir. En nuestro archivo **.java** incluimos las siguientes instrucciones:
 
 ```
 @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
 	
-	//Reproducir archivo de sonido
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.jazz_in_paris);
-        mediaPlayer.setLooping(false);
-        mediaPlayer.setVolume(1300, 1300);
-        mediaPlayer.start();
-    }
+  //Reproducir archivo de sonido
+  MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.jazz_in_paris);
+  mediaPlayer.setLooping(false);
+  mediaPlayer.setVolume(1300, 1300);
+  mediaPlayer.start();
+}
 ```
+************************************************************************************************************************************
+### Intents
 
+Los Intents nos permiten ir de una actividad a otra, incluso podemos pasar datos entre las actividades. Existen dos tipos de Intent:
+
+* **Explicitos**: Indicamos la vista a la que queremos movernos. 
+* **Implicitos**: 
+
+Vamos a ver un ejemplo de un **Intent Explicito** para que nos lleve de la activity inicial a una segunda activity:
+
+
+
+
+### Animación de Secuencias de Imagenes
+
+[Info Vale](https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/res/drawable/introduccion.xml)
+
+
+
+### :iphone: App Cajas :iphone:
+
+EJERCICIO:
+
+1) AÑADIR UNA CAJA DE TEXTO Y UN BOTÓN AL LAYOUT
+2) EL FIN DEL JUEGO CAMBIA: CUANDO EL USUARIO CREA TENER LA SUMA DE TODOS LOS NÚMEROS, INTRODUCIRÁ EL TOTAL EN LA CAJA DE TEXTO ANTERIOR Y PULSARÁ EL BOTÓN
+2.1 SI ACIERTA, SE LE MUESTRA EL TIEMPO TOTAL INVERTIDO
+2.2 SI FALLA, SE LE AVISA Y EL TIEMPO SIGUE CORRIENDO
+
+
+## Miercoles 02/10/2019
+
+## Jueves 03/10/2019
+
+## Viernes 04/10/2019
+
+## Lunes 07/10/2019
+
+## Martes 08/10/2019
+
+## Miercoles 09/10/2019
+
+## Jueves 10/10/2019
+
+## Viernes 11/10/2019
+
+## Lunes 14/10/2019
+
+## Martes 15/10/2019
+
+## Miercoles 16/10/2019
+
+## Jueves 17/10/2019
+
+## Viernes 18/10/2019
+
+## Lunes 19/10/2019
+
+## Martes 20/10/2019
+
+## Miercoles 21/10/2019
+
+## Jueves 22/10/2019
+
+## Viernes 23/10/2019
+
+## Lunes 26/10/2019
+
+## Martes 27/10/2019
+
+## Miercoles 28/10/2019
+
+## Jueves 29/10/2019
+
+## Viernes 30/10/2019
