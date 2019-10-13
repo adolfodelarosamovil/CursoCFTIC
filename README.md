@@ -464,7 +464,7 @@ La vista **Scroll View** nos permite desplazarnos a lo largo de la pantalla para
 </ScrollView>
 ```
 
-### Imagenes e ImageView
+### Android Drawable Importer
 
 Podemos importar imagenes a nuestro proyecto dentro de la carpeta **drawable**, si solo arrastramos las imagenes en esa carpeta se insertara la imagen, pero si queremos que la imagen este lista para varias resouluciones sera necesario insertar el pluging **Android Drawable Importer**
 
@@ -494,14 +494,78 @@ Una vez que aceptamos todas las opciones podemos ver como se han añadido las di
 
 <img src="/imgDocumentacion/android_drawable_import_files.png">
 
+### ImageView
 
+El **view ImageView** nos permitirá pintar una imagen en la pantalla del móvil basta con agregar un **ImageView** en nuestra **activity.xml** y poner todas las propiedades, por ejemplo:
 
+```
+ <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="339dp"
+        android:layout_height="643dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="44dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pantera_rosa" />
+```
 
+En el atributo ` app:srcCompat="@drawable/pantera_rosa"` ponemos el nombre de la imagen, otro atributo importante es `android:scaleType` el cual nos permite scalar la imagen de diferentes formas, sus opciones son:
 
+* centerInside
+* fitStart
+* fitEnd
+* center
+* matrix
+* fitXY
+* fitCenter
+* centerCrop
 
+<img src="/imgDocumentacion/image_view_1.png">
 
-//setear imagen
-ImageView imagen_pantera = findViewById(R.id.pantera);
-imagen_pantera.setImageResource(R.drawable.pantera_rosa);
+En el dispositivo se vera así:
+
+<img src="/imgDocumentacion/image_view_2.png">
+
+#### Insertar Imagen de Forma Dinámica
+
+En el XML metemos el view para la imagen:
+
+```
+<ImageView
+  android:id="@+id/img_pantera"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  tools:ignore="MissingConstraints">
+
+</ImageView>
+```
+
+Y en el java metemos los atributos necesarios para que la imagen se cargue:
+
+```
+ImageView imagenPanteraRosa = findViewById(R.id.img_pantera);
+imagenPanteraRosa.setImageResource(R.drawable.pantera_rosa);
+```
+
+En el dispositivo se ve así:
+
+<img src="/imgDocumentacion/image_view_3.png">
+
+Esiste el método `setVisibility` el cual nos permite hacer la imagen visible, invisible e incluso quitarla del XML.
+
+```
+imagenPanteraRosa.setVisibility(View.VISIBLE);
+imagenPanteraRosa.setVisibility(View.INVISIBLE);
+imagenPanteraRosa.setVisibility(View.GONE);
+```
+
 
 
