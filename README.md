@@ -559,7 +559,7 @@ En el dispositivo se ve así:
 
 <img src="/imgDocumentacion/image_view_3.png">
 
-Esiste el método `setVisibility` el cual nos permite hacer la imagen visible, invisible e incluso quitarla del XML.
+Existe el método `setVisibility` el cual nos permite hacer la imagen visible, invisible e incluso quitarla del XML.
 
 ```
 imagenPanteraRosa.setVisibility(View.VISIBLE);
@@ -567,5 +567,285 @@ imagenPanteraRosa.setVisibility(View.INVISIBLE);
 imagenPanteraRosa.setVisibility(View.GONE);
 ```
 
+## Viernes 27/09/2019
+
+### :iphone: App Cajas :iphone:
+
+### Linear Layout
+
+Un Layout que organiza otras vistas, ya sea horizontalmente en una sola columna o verticalmente en una sola fila.
+
+**LinearLayout Vertical**
+```
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vertical Orientation is set -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Text Displayed At Top -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Linear Layout (Sin Weight)"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Button Used -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 1"
+        android:background="#009300" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 2"
+        android:background="#e6cf00" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 3"
+        android:background="#0472f9" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 4"
+        android:background="#e100d5" />
+</LinearLayout>
+```
+<img src="/imgDocumentacion/linearlayout_1.png">
+
+**LinearLayout Vertical con Weight**
+
+El `Weight` es un peso que se le da a cada uno de los views que  se pinten
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="4"
+    android:orientation="vertical">
+
+    <!-- Text Displayed At Top -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Linear Layout (Con Weight)"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0"/>
+
+    <!-- Button Used -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 1"
+        android:background="#009300"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 2"
+        android:background="#e6cf00"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 3"
+        android:background="#0472f9"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Botón 4"
+        android:background="#e100d5"
+        android:layout_weight="1"/>
+</LinearLayout>
+```
+
+<img src="/imgDocumentacion/linearlayout_2.png">
+
+**LinearLayout Horizontal con Weight**
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Text Displayed At Top -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Linear Layout Horizontal (Sin Weight)"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <!-- Button Used -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#009300"
+            android:text="Botón 1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e6cf00"
+            android:text="Botón 2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0472f9"
+            android:text="Botón 3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e100d5"
+            android:text="Botón 4" />
+    </LinearLayout>
+</LinearLayout>
+```
+<img src="/imgDocumentacion/linearlayout_3.png">
+
+**LinearLayout Horizontal con Weight y wrap_content**
+
+```
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Text Displayed At Top -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Linear Layout Horizontal (Con Weight)"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <!-- Button Used -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#009300"
+            android:text="Botón 1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#e6cf00"
+            android:text="Botón 2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#0472f9"
+            android:text="Botón 3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#e100d5"
+            android:text="Botón 4" />
+    </LinearLayout>
+</LinearLayout>
+```
+<img src="/imgDocumentacion/linearlayout_4.png">
 
 
+**LinearLayout Horizontal con Weight y match_parent**
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Text Displayed At Top -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Linear Layout Horizontal (Con Weight)"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <!-- Button Used -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#009300"
+            android:text="Botón 1" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#e6cf00"
+            android:text="Botón 2" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#0472f9"
+            android:text="Botón 3" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#e100d5"
+            android:text="Botón 4" />
+    </LinearLayout>
+</LinearLayout>
+```
+
+<img src="/imgDocumentacion/linearlayout_5.png">
