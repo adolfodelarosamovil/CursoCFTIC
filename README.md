@@ -1062,6 +1062,87 @@ https://github.com/adolfodelarosamovil/IMC
 CV
 COLLABEDIT HOY
 http://collabedit.com/mssdc
+//para cargar la web localmente almacenada
+webView.loadUrl("file:///android_asset/ayuda.html");
+
+<html>
+<div>
+    <i><b>FichApp</b></i> es una aplicación para dispositivos con Sistema Operativo Android,
+    creada con
+</div>
+<div>
+    el objetivo de registrar las horas laborales de un empleado dentro de una
+    empresa, en
+</div>
+<div>
+    la cual actuará como administrador. Para ello se debe seguir los siguientes
+    pasos:
+</div>
+<div>
+    <br/>
+    1) Una vez descargada e instalada la aplicación en el dispositivo, se debe
+    dar de alta el usuario Administrador(responsable en la empresa), rellenando los campos del formulario inicial, id(identificador del responsable), contraseña que va a
+    usar.
+</div>
+<div>
+    <br/>
+    <b>Inicio sesión como Administrador/Gestor:</b>
+</div>
+<div>
+    <br/>
+    2) El Administrador rellena los datos de la empresa en los campos correspondientes.
+</div>
+<div>
+    <br/>
+</div>
+<div>
+    3) El Administrador inicia sesión rellenando id y contraseña y en la
+    siguiente pantalla
+</div>
+<div>
+    elige su rol: Gestor.
+</div>
+<div>
+    <br/>
+</div>
+<div>
+    4) El Gestor accede a Menú Gestor que tiene las siguientes opciones:
+</div>
+<div>
+    - Editar Datos (Gestor)
+</div>
+<div>
+    - Editar Datos (Empresa)
+</div>
+<div>
+    - Registro de Empleados: El Gestor registra a los empleados, rellenando
+    datos personales(del empleado), le asigna un id(empleado) y una contraseña inicial.
+</div>
+<div>
+    - Consulta de Datos Empleado
+</div>
+<div>
+    - Enviar Informe
+</div>
+<div>
+    <br/>
+    <b>Inicio sesión como Empleado:</b>
+</div>
+<div>
+    <br/>
+    1) El Empleado rellena los campos: id(Usuario) y contraseña.
+</div>
+<div>
+    2) Accede a Menú Empleado que tiene las opciones:
+</div>
+<div>
+    - Registro horas Empleado
+</div>
+<div>
+    - Consulta de horas
+</div>
+</html>
+
 
 CV
 Enlace wikiimc
@@ -1075,19 +1156,284 @@ CV
 url FICHAPP
 https://github.com/Valexx55/FICHApp
 
+### Shared Preferences [5 – ALMACENAMIENTO INTERNO](/Documentacion/ANDROID5.pdf)
+
+Los Shared Preferences son archivos XML que residen en la memoria del dispositivo y me permiten almacenar información en la forma:
+
+CLAVE: VALOR
+
+Los tipos de datos que me permite almacenar son:
+* Boolean
+* String
+* Numéricos: float, int, long
+
+Son parecidos a los ficheros de propiedades, pero se almacenan como un XML
+
+```
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+  <string name="nombre">prueba</string>
+  <string name="email">modificado@email.com</string>
+</map>
+```
+
+El procedimiento general de trabajo con estos ficheros será:
+
+1 Obtener referencia
+2 Añadir/Consultar valores
+3 Guardar los cambios
+
+**1 Obtener referencia**
+
+`SharedPreferences prefs = getSharedPreferences(String nombre,MODO);`
+
+Donde, MODO, es una constante de Context y puede ser:
+
+`MODE_PRIVATE` Sólo nuestra aplicación tiene acceso a estas preferencias.
+`MODE_WORLD_READABLE`
+`MODE_WORLD_WRITABLE`
+
+**2 Consultar/Añadir Valores**
+
+```
+String correo = prefs.getString("email", "por_defecto@email.com");
+SharedPreferences.Editor editor = prefs.edit();
+editor.putString("email", "modificado@email.com");
+```
+
+**3 Guardar**
+
+`editor.commit();// Hago efectivos los cambios`
 
 ## Miercoles 09/10/2019
 
-CV
-COLLABEDIT HOY
-http://collabedit.com/f3p9r
+### :iphone: PreferenciasAPP :iphone:
 
-CV
-TETRIS
+El siguiente es un código de ejemplo para usar las `SharedPreferences` para saber si es la primera vez o no en entrar a una APP.
+
+```
+public class MainActivity extends AppCompatActivity {
+
+    public static final String NOMBRE_FICHERO_PREFS = "preferencias";
+    public static final String CLAVE_PRIMERA_VEZ = "primera_vez";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //Si es la primera vez
+            //informo
+        //SI NO
+            //informo
+        SharedPreferences sp = getSharedPreferences(NOMBRE_FICHERO_PREFS, MODE_PRIVATE);
+        boolean primera_vez = sp.getBoolean(CLAVE_PRIMERA_VEZ, true);
+
+        if(primera_vez){
+            Log.d("MIAPP", "Es la primera vez que entra");
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean(CLAVE_PRIMERA_VEZ, false);
+            editor.commit();
+        }else{
+            Log.d("MIAPP", "NO Es la primera vez que entra");
+        }
+    }
+}
+
+
+//OUTPUT
+2019-10-14 17:53:49.754 14441-14441/com.example.preferenciasapp D/MIAPP: NO Es la primera vez que entra
+```
+
+El método `getSharedPreferences` es el encargado de crear el archivo si es que no existe y si existe lo recupera, la sentencia completa es:
+`SharedPreferences sp = getSharedPreferences(NOMBRE_FICHERO_PREFS, MODE_PRIVATE);`
+
+Para recuperar un valor del archivo usamos el método `get` la sentencia completa es:
+`boolean primera_vez = sp.getBoolean(CLAVE_PRIMERA_VEZ, true);`.
+
+Si lo que queremos es meter un valor en el archivo usamos el método `put` pero previo debemos usar un editor:
+
+```
+SharedPreferences.Editor editor = sp.edit();
+editor.putBoolean(CLAVE_PRIMERA_VEZ, false);
+```
+
+Para salvar la información en el archivo usamos el método `commit` del `editor`:
+
+`editor.commit();`
+
+### Examen Escrito
+
+Resultado: 7.8
+
+### Ejercicio en la :iphone: App DNI :iphone:
+
+Al pulsar el botón hacia atrás guardar el valor del DNI y radio seleccionado.
+
+Cuando se presiona el botón hacia atrás se dispara el método **onBackPressed()** es allí cuando vamos a aprovechar para guardar los valores:
+
+```
+@Override
+public void onBackPressed() {
+  super.onBackPressed();
+  Log.d("MIAPP", "El usuario le ha dado al Botón Retroceso");
+  EditText dniView = findViewById(R.id.dni);
+  String dniString = dniView.getText().toString();
+
+  RadioGroup radioGroup = findViewById(R.id.radioGroup);
+  int radioId = radioGroup.getCheckedRadioButtonId();
+  
+  SharedPreferences sp = getSharedPreferences(NOMBRE_FICHERO_PREFS, MODE_PRIVATE);
+  SharedPreferences.Editor editor = sp.edit();
+  editor.putString(DNI, dniString);
+  editor.putInt(RADIO, radioId);
+  editor.commit();
+}
+```
+
+### Ejercicio en la :iphone: App DNI :iphone:
+
+Al pulsar el botón hacia atrás presentar un cuadro de dialogo que pregunte si deseamos o no almacenar los valores del DNI y radio seleccionado.
+
+Vamos a crear el método `mostrarDialogoSalir()` que será el encargado de salvar o no lo s datos y salir de la actividad el cual sera llamado al invocar el método `onBackPressed()` observese que se tuvo que comentar ` //super.onBackPressed();` ya que el final de la actividad es manejado por el método `mostrarDialogoSalir()`.
+```
+@Override
+public void onBackPressed() {
+  //super.onBackPressed();
+  mostrarDialogoSalir()
+}
+
+private void mostrarDialogoSalir()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("¿Deesea almacenar los datos?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+               Log.d(TAG_APP, "Tocó SÍ");
+
+               Log.d("MIAPP", "El usuario le ha dado al Botón Retroceso");
+               EditText dniView = findViewById(R.id.dni);
+               String dniString = dniView.getText().toString();
+
+               RadioGroup radioGroup = findViewById(R.id.radioGroup);
+               int radioId = radioGroup.getCheckedRadioButtonId();
+		
+	       //Guarda valores
+               SharedPreferences sp = getSharedPreferences(NOMBRE_FICHERO_PREFS, MODE_PRIVATE);
+  	       SharedPreferences.Editor editor = sp.edit();
+               editor.putString(DNI, dniString);
+               editor.putInt(RADIO, radioId);
+               editor.commit();
+
+               dialog.dismiss();
+               MainActivity.this.finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+                Log.d(TAG_APP, "Tocó NO");
+                
+		//Limpia valores almacenados
+		SharedPreferences sp = getSharedPreferences(NOMBRE_FICHERO_PREFS, MODE_PRIVATE);
+  	        SharedPreferences.Editor editor = sp.edit();
+                editor.putString(DNI, "");
+                editor.putInt(RADIO, 0);
+                editor.commit();
+                
+		dialog.cancel();
+                MainActivity.this.finish();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+```
+
+### Contextos
+
+[El CONTEXTO en ANDROID](/Documentacion/CONTEXT.pdf)
+
+### Ejercicio en la :iphone: App DNI :iphone:
+
+Realizar una clase que gestione el almacenamiento en Preferencias.
+
+**Un punto importante a considerar es que en al usar las `SharedPreferences` necesitamos el contexto de la Activity y al estar en una clase comuún y corriente el contexto no lo tenemos por lo que debemos pasarlo a cada método que lo necesite.**
+
+```
+public class Preferencias {
+
+    public static final String FICHERO_LISTA_DNIS = "lista_dnis";
+    public static final String FICHERO_NO_DNIS = "numero_dni";
+    public static final String FICHERO_ULTIMO = "ultimo_dni";
+    public static final String CLAVE_ULTIMO_DNI = "dni";
+    public static final String VALOR_ULTIMO_RADIO = "radio";
+    public static int clave = 0;
+    public static int noDNIs;
+
+
+    /**
+     * Este método graba en el fichero de preferencias el último dni
+     * @param contexto el contexto de la aplicación
+     * @param dni el valor a guardar
+     */
+    public static void guardarDNI(Context contexto, String dni){
+
+        SharedPreferences sp = contexto.getSharedPreferences(FICHERO_ULTIMO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(CLAVE_ULTIMO_DNI, dni);
+        editor.commit();
+    }
+
+    /**
+     * Obtiene el valor del último DNI almacenado en las preferences
+     *
+     * @param context Contexto de la aplicación
+     * @return el ultimo dni almacenado y cadena vacía en caso de que no exista
+     */
+    public static String obtenerUltimoDNI(Context context){
+        String ultimo_dni = null;
+        SharedPreferences sp = context.getSharedPreferences(FICHERO_ULTIMO, Context.MODE_PRIVATE);
+        ultimo_dni = sp.getString(CLAVE_ULTIMO_DNI, "");
+        return ultimo_dni;
+    }
+
+    /**
+     * Este método graba en el fichero de preferencias el último radio seleccionado
+     * @param contexto el contexto de la aplicación
+     * @param radio el valor a guardar
+     */
+    public static void guardarRadio(Context contexto, int radio){
+        SharedPreferences sp = contexto.getSharedPreferences(FICHERO_ULTIMO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(VALOR_ULTIMO_RADIO, radio);
+        editor.commit();
+    }
+
+    /**
+     * Obtiene el valor del último RADIO almacenado en las preferences
+     *
+     * @param context Contexto de la aplicación
+     * @return el ultimo radio almacenado y 0 en caso de que no exista
+     */
+    public static int obtenerUltimoRadio(Context context){
+        int radio = 0;
+        SharedPreferences sp = context.getSharedPreferences(FICHERO_ULTIMO, Context.MODE_PRIVATE);
+        radio = sp.getInt(VALOR_ULTIMO_RADIO, radio);
+        return radio;
+    }
+}
+```
+
+### Tetris
+
+Juego desarrollado por Shaquir
 https://github.com/saqibsaleem22/Tetris
 
-CV
-ENUNCIADO APP VOLUNTARIA
+### Ejercicio APP VOLUNTARIA
 /**
  * HACER UNA APLICACIÓN
  * QUE ADIVINE UN NÚMERO GENERADO ALEATORIAMENTE
@@ -1122,6 +1468,55 @@ http://www.comunidad.madrid/noticias/2019/10/11/extendemos-oferta-formacion-empl
 
 
 ## Lunes 14/10/2019
+
+CV
+CARGAR DNI
+public static List<Dni>  cargarFicheroDni (Context context)
+   {
+       List<Dni> lista_dnis = null;
+       String clave_actual = null;
+       String dni_actual = null;
+       Dni objeto_dni = null;
+       Gson gson = null;
+//http://collabedit.com/
+           Log.d(MainActivity.TAG_APP, "Mostrando . . .");
+           SharedPreferences sp = context.getSharedPreferences(FICHERO_DNIS, Context.MODE_PRIVATE);
+           Map<String, String> mapa_dnis = (Map<String, String>)sp.getAll();
+           //recorrer el mapa_dnis
+           Set<String> claves = mapa_dnis.keySet();
+           gson = new Gson();
+           lista_dnis = new ArrayList<Dni>();
+
+           for (String clave : claves) {
+               dni_actual = mapa_dnis.get(clave);//obtengo el valor asociado a la clave
+               Log.d(MainActivity.TAG_APP, dni_actual);
+               objeto_dni = gson.fromJson(dni_actual, Dni.class);//y deserializo
+               lista_dnis.add(objeto_dni);//añado a la lista el objeto Dni obtenido
+           }
+
+       /*Iterator<String> iterator = claves.iterator();
+
+       while (iterator.hasNext())
+       {
+           clave_actual = iterator.next();
+           dni_actual = mapa_dnis.get(clave_actual);
+           Log.d(MainActivity.TAG_APP, dni_actual);
+       }*/
+
+    return lista_dnis;
+   }
+
+CV
+link de colecciones
+https://github.com/Valexx55/JavaExamples/tree/master/BasicsExamplesJSE/src/val/examples/basic/collections
+
+CV
+LINK REPO RECYCLER
+https://github.com/Valexx55/RecyclerCFTIC
+
+CV
+PRÁCTICA RECYCLER
+HACER UNA NUEVA ACTIVIDAD EN LA APLICACIÓN DEL DNI PARA QUE MUESTRE UNA LISTA CON LOS DNIS ALMACENADOS EN EL FICHERO DE PREFERENCIAS
 
 ## Martes 15/10/2019
 
