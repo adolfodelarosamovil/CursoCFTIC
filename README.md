@@ -257,22 +257,20 @@ Algún programador Clase C nos ha dejado en herencia una función sin documentar
 
 ```
 private static boolean adivinaQueHace (String cad)
-	{
-		boolean bd = true;
+{
+  boolean bd = true;
 		
-		int i = 0;
-		int j = cad.length()-1;
+  int i = 0;
+  int j = cad.length()-1;
 		
-		while ((i<=j)&&(bd))
-		{
-			bd = cad.charAt(i)==cad.charAt(j);
-			i++;
-			j--;
-		}
-		
-		
-		return bd;
-	}
+  while ((i<=j)&&(bd))
+  {
+    bd = cad.charAt(i)==cad.charAt(j);
+    i++;
+    j--;
+  }
+  return bd;
+}
 ```
 
 ## Miercoles 25/09/2019
@@ -948,6 +946,12 @@ Toast.LENGTH_SHOR
 
 ## Martes 01/10/2019
 
+### Herencia de la clase View
+
+Es importante vizualizar la estructura de herencia que se tiene en la clase **View** para observar de donde deciende cada componente.
+
+<img src="/imgDocumentacion/view_class.png">
+
 ### Clase MediaPlayer
 
 **Documentación Oficial**
@@ -969,6 +973,7 @@ protected void onCreate(Bundle savedInstanceState) {
   mediaPlayer.start();
 }
 ```
+
 ************************************************************************************************************************************
 ### Intents
 
@@ -977,16 +982,130 @@ Los Intents nos permiten ir de una actividad a otra, incluso podemos pasar datos
 * **Explicitos**: Indicamos la vista a la que queremos movernos. 
 * **Implicitos**: 
 
-Vamos a ver un ejemplo de un **Intent Explicito** para que nos lleve de la activity inicial a una segunda activity:
+Vamos a ver un ejemplo de un **Intent Explicito** para que nos lleve de la Main Activity a una Segunda Activity:
 
+<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/second_activity.png" width="300">
 
+En la primer pantalla tenemos un bóton que nos debe llevar a la segunda pantalla, el botón cuenta con un atributo **onClick** el cual tiene puesto el método que se debe llamar cuando se pulse en el botón:
 
+```
+<Button
+  android:id="@+id/button"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="32dp"
+  android:text="Ir a Segunda Activity"
+  android:onClick="irAsegundaActivity"
+   />
+```
+
+Y en la activida tenemos la definición de dicho método:
+
+```
+public void irAsegundaActivity(View view) {
+  Intent intent = new Intent(this, SecondActivity.class);
+  startActivity(intent);
+}
+```
+
+#### Intent Explicitos con paso de parámetros
+
+Cuando llamamos a una nueva actividad podemos pasar valores usando el método `putExtra()`, la forma de hacerlo es como sigue:
+
+```
+public void irAsegundaActivity(View view) {
+  Date fecha = new Date();
+  String fechaStr = String.valueOf(fecha);
+  
+  Intent intent = new Intent(this, SecondActivity.class);
+  //Pasamos información
+  intent.putExtra("FECHA", fechaStr);
+  startActivity(intent);
+}
+```
+
+En la Activity que es llamada se recupera el Intent que la genero y una vez recuperado se usa el método `getStringExtra()` (exiten otros métodos según tipo de dato) para recuperar el dato que se puede asignar a algún view para verlo en pantalla, por ejemplo:
+
+```
+public class SecondActivity extends AppCompatActivity {
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_second);
+
+    //Recupera el Intent que genero la Activity
+    Intent intent = getIntent();
+    //Recupera el dato que se le paso en el Intent usando la Key
+    String fecha = intent.getStringExtra("FECHA");
+
+    //Asigna el valor recuperado a un TextView
+    TextView textoFecha = findViewById(R.id.fecha);
+    textoFecha.setText(fecha);
+  }
+}
+```
+
+<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/second_activity_2.png" width="300">
 
 ### Animación de Secuencias de Imagenes
 
 [Info Vale](https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/res/drawable/introduccion.xml)
 
+Podemos crear animaciones con secuencias de imagenes, los pasos son los siguientes:
 
+1. Insertar en la carpeta **drawable** las imagenes que vamos a usar para la animación.
+
+2. Crear dentro de la carpeta **drawable** un archivo XML con la lista de las imagenes a desplegar, indicando su nombre y duración en milísegundos:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/image0" android:duration="1700" />
+    <item android:drawable="@drawable/image1" android:duration="1700" />
+    <item android:drawable="@drawable/image2" android:duration="1700" />
+    <item android:drawable="@drawable/image3" android:duration="1700" />
+    <item android:drawable="@drawable/image4" android:duration="1700" />
+    <item android:drawable="@drawable/image5" android:duration="1700" />
+    <item android:drawable="@drawable/image6" android:duration="1700" />
+    <item android:drawable="@drawable/image7" android:duration="1700" />
+    <item android:drawable="@drawable/image8" android:duration="1700" />
+    <item android:drawable="@drawable/image9" android:duration="1700" />
+    <item android:drawable="@drawable/image8" android:duration="1700" />
+    <item android:drawable="@drawable/image7" android:duration="1700" />
+    <item android:drawable="@drawable/image6" android:duration="1700" />
+    <item android:drawable="@drawable/image5" android:duration="1700" />
+    <item android:drawable="@drawable/image4" android:duration="1700" />
+    <item android:drawable="@drawable/image3" android:duration="1700" />
+    <item android:drawable="@drawable/image2" android:duration="1700" />
+    <item android:drawable="@drawable/image1" android:duration="1700" />
+</animation-list>
+```
+
+3. Crear una nueva Activity que tenga un **ImageView** donde se iran desplegando las imagenes:
+
+```
+<ImageView
+  android:id="@+id/imagenes"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:layout_editor_absoluteX="0dp"
+  tools:layout_editor_absoluteY="16dp" />
+```
+
+4. En el código .java poner lo siguiente:
+
+```
+ImageView imagenView = findViewById(R.id.imagenes);
+imagenView.setBackgroundResource(R.drawable.animaciones);
+AnimationDrawable animationDrawable = (AnimationDrawable) imagenView.getBackground();
+animationDrawable.start();
+```
+
+Tenemos como resultado:
+
+<img src="/imgDocumentacion/ahorcado2.png" width="200"><img src="/ahorcado5.png" width="200"><img src="/ahorcado9.png" width="200">
 
 ### :iphone: App Cajas :iphone:
 
@@ -1519,6 +1638,29 @@ PRÁCTICA RECYCLER
 HACER UNA NUEVA ACTIVIDAD EN LA APLICACIÓN DEL DNI PARA QUE MUESTRE UNA LISTA CON LOS DNIS ALMACENADOS EN EL FICHERO DE PREFERENCIAS
 
 ## Martes 15/10/2019
+
+CV
+REPO IMAGEN REDONDEAD
+https://github.com/Valexx55/ImagenRedondeadaApp
+
+CV
+ACTUALIZAR UNA LISTA SI CAMBIA
+//actualizar lista
+public void ordenarPorDni (View view)
+    {
+        Collections.sort(lista_dnis);
+        dniAdapter.setDniList(lista_dnis);
+        dniAdapter.notifyDataSetChanged();
+
+    
+}
+
+CV
+PARTIENDO DEL REPO https://github.com/Valexx55/DniAPP_Android HACED:
+1) QUE LA LISTA DE DNIS SE ORDENE POR NÚMERO DE MENOR A MAYOR CUANDO EL USARIO TOQUE LA COLUMNA DEL DNI Y 
+2)POR LETRA ALFABÉTICAMENTE CUANDO TOQUE LA COLUMNA DE LETRA
+
+EN AMBOS CASOS, QUE MUESTRE UN TOAST CON MENSAJE INFORMATIVO DEL ORDEN
 
 ## Miercoles 16/10/2019
 
