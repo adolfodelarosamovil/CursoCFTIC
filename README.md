@@ -1046,7 +1046,7 @@ public class SecondActivity extends AppCompatActivity {
 }
 ```
 
-<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/second_activity_2.png" width="300">
+<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/imgDocumentacion/second_activity_2.png" width="300">
 
 ### Animación de Secuencias de Imagenes
 
@@ -1105,7 +1105,7 @@ animationDrawable.start();
 
 Tenemos como resultado:
 
-<img src="/imgDocumentacion/ahorcado2.png" width="200"><img src="/ahorcado5.png" width="200"><img src="/ahorcado9.png" width="200">
+<img src="/imgDocumentacion/ahorcado2.png" width="200"><img src="/imgDocumentacion/ahorcado5.png" width="200"><img src="/imgDocumentacion/ahorcado9.png" width="200">
 
 ### :iphone: App Cajas :iphone:
 
