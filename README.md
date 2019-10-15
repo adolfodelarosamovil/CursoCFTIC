@@ -974,7 +974,6 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-************************************************************************************************************************************
 ### Intents
 
 Los Intents nos permiten ir de una actividad a otra, incluso podemos pasar datos entre las actividades. Existen dos tipos de Intent:
@@ -984,7 +983,7 @@ Los Intents nos permiten ir de una actividad a otra, incluso podemos pasar datos
 
 Vamos a ver un ejemplo de un **Intent Explicito** para que nos lleve de la Main Activity a una Segunda Activity:
 
-<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/second_activity.png" width="300">
+<img src="/imgDocumentacion/main_activity.png" width="300"><img src="/imgDocumentacion/second_activity.png" width="300">
 
 En la primer pantalla tenemos un bóton que nos debe llevar a la segunda pantalla, el botón cuenta con un atributo **onClick** el cual tiene puesto el método que se debe llamar cuando se pulse en el botón:
 
@@ -1116,9 +1115,64 @@ EJERCICIO:
 2.1 SI ACIERTA, SE LE MUESTRA EL TIEMPO TOTAL INVERTIDO
 2.2 SI FALLA, SE LE AVISA Y EL TIEMPO SIGUE CORRIENDO
 
-CV
-ACTIVITY SPLASH RIVAS
-https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/java/edu/val/idel/rivas/turismorivas/actividades/SplashActivity.java
+### SPLASH
+
+[ACTIVITY SPLASH RIVAS]
+(https://github.com/Valexx55/AppTurismoRivas/blob/master/app/src/main/java/edu/val/idel/rivas/turismorivas/actividades/SplashActivity.java)
+
+El Splash es una pantalla inicial de presentación que se puede cargar previa a la funcionalidad de la APP. Para crearla seguimos los siguientes pasos:
+
+1. Crear una nueva **Activity Splash**.
+
+2. Establecerla como la Activity inicial en el Manifest.
+
+```
+<activity android:name=".Splash">
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
+</activity>
+```
+
+3. Hacer el diseño del Splash en el activity_splash.xml
+
+<img src="/imgDocumentacion/splash1.png">
+
+4. Poner el codigo en el archivo Splash.java
+
+```
+public class Splash extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //Ocultamos la ActionBar
+        getSupportActionBar().hide();
+
+        setContentView(R.layout.activity_splash);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Splash.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        }, 4000);
+    }
+}
+
+```
+
+El resultado que se mostrara durante 4 segundos antes de llamar a la Mainactivity:
+
+<img src="/imgDocumentacion/splash2.png">
 
 
 ## Miercoles 02/10/2019
