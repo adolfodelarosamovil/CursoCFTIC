@@ -1694,6 +1694,14 @@ HACER UNA NUEVA ACTIVIDAD EN LA APLICACIÓN DEL DNI PARA QUE MUESTRE UNA LISTA C
 ## Martes 15/10/2019
 
 CV
+[imagen redondeada](https://github.com/Valexx55/ANDROID_CUSTOM_VIEW_ROUNDED/blob/master/MyCustomRoundedImageView/app/src/main/java/com/example/vale/mycustomroundedimageview/RoundedImageView.java
+)
+
+CV
+ROUNDED IMAGE VIEW
+HACER UNA NUEVA APP LLAMADA ImagenRedondaApp QUE TENGA UNA ACTIVITY DONDE SE USE LA CLASE DEL ENLANCE (https://github.com/Valexx55/ANDROID_CUSTOM_VIEW_ROUNDED/blob/master/MyCustomRoundedImageView/app/src/main/java/com/example/vale/mycustomroundedimageview/RoundedImageView.java) PARA DIBUJAR UNA IMAGEN (LA QUE SE QUIERA) REDONDEADA.
+
+CV
 REPO IMAGEN REDONDEAD
 https://github.com/Valexx55/ImagenRedondeadaApp
 
@@ -1722,22 +1730,18 @@ EN AMBOS CASOS, QUE MUESTRE UN TOAST CON MENSAJE INFORMATIVO DEL ORDEN
 
 ## Viernes 18/10/2019
 
-## Lunes 19/10/2019
+## Lunes 21/10/2019
 
-## Martes 20/10/2019
+## Martes 22/10/2019
 
-## Miercoles 21/10/2019
+## Miercoles 23/10/2019
 
-## Jueves 22/10/2019
+## Jueves 24/10/2019
 
-## Viernes 23/10/2019
+## Viernes 25/10/2019
 
-## Lunes 26/10/2019
+## Lunes 28/10/2019
 
-## Martes 27/10/2019
+## Martes 29/10/2019
 
-## Miercoles 28/10/2019
-
-## Jueves 29/10/2019
-
-## Viernes 30/10/2019
+## Miercoles 30/10/2019
